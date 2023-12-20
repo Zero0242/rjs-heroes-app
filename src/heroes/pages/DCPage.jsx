@@ -1,5 +1,5 @@
 export const DCPage = () => {
   return (
-    <div>DCPage</div>
+    <h1>DCPage</h1>
   )
 }
