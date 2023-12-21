@@ -8,7 +8,6 @@ export const HeroPage = () => {
   const hero = useMemo(() => getHeroById(id), [id]);
   //const hero = getHeroById(id);
 
-  
   const navigateBack = () => navigate(-1);
 
   if (!hero) return <Navigate to={"/"} />;
@@ -19,7 +18,7 @@ export const HeroPage = () => {
         <img
           src={`/assets/heroes/${id}.jpg`}
           alt={hero.superhero}
-          className='img-thumbnail'
+          className='img-thumbnail animate__animated animate__fadeInLeft'
         />
       </div>
       <div className='col-8'>
