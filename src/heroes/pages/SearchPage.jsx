@@ -11,6 +11,9 @@ export const SearchPage = () => {
   const { onInputChange, searchQuery } = useForm({ searchQuery: q });
   const heroes = getHeroeBySeach(q);
 
+  const showBanner = q.length === 0;
+  const showError = q.length > 0 && heroes.length === 0;
+
   const onSearchSubmit = (event) => {
     event.preventDefault();
     if (searchQuery.trim().length <= 1) return;
@@ -42,13 +45,19 @@ export const SearchPage = () => {
         <div className='col-7'>
           <h4>Results</h4>
           <hr />
-          <div className='alert alert-primary'>Buscar un Heroe</div>
 
-          <div className='alert alert-danger'>
+          <div
+            className='alert alert-primary animate__animated animate__fadeIn'
+            style={{ display: showBanner ? "" : "none" }}>
+            Buscar un Heroe
+          </div>
+
+          <div
+            className='alert alert-danger animate__animated animate__fadeIn'
+            style={{ display: showError ? "" : "none" }}>
             No Results for <b>{q}</b>
           </div>
 
-          {/* <HeroCard /> */}
           {heroes.map((hero) => (
             <HeroCard key={hero.id} {...hero} />
           ))}
