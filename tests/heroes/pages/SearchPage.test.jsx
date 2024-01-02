@@ -12,6 +12,25 @@ describe("Pruebas en <SearchPage />", () => {
 
     //screen.debug();
 
-    expect(container).toMatchSnapshot()
+    expect(container).toMatchSnapshot();
+  });
+  test("debe de mostar un heroe cuando el query tiene ?q=heroe", () => {
+    const heroe = "batman";
+    render(
+      <MemoryRouter initialEntries={[`/search?q=${heroe}`]}>
+        <SearchPage />
+      </MemoryRouter>
+    );
+
+    const input = screen.getByRole("textbox");
+    expect(input.value).toBe(heroe);
+
+    const image = screen.getByRole("img");
+    expect(image.src).toContain(heroe);
+
+    // screen.debug();
+    const alertDiv = screen.getByLabelText("alert-danger");
+
+    expect(alertDiv.style.display).toBe("none");
   });
 });
