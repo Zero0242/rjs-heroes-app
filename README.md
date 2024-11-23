@@ -1,8 +1,34 @@
-# React + Vite
+<p align="center">
+  <a href="https://github.com/" target="blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="200" alt="App Logo" /></a>
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Proyecto Pagina de Heroes
 
-Currently, two official plugins are available:
+Pagina desarrollada en react JS para aplicar conocimientos de desarrollo web
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![status_01](https://github.com/Zero0242/rjs-heroes-app/actions/workflows/deploy-to-vps.yml/badge.svg)
+
+> creado en node js
+
+## DEV
+
+1. Clonar repositorio con `git clone`
+2. Instalar los paquetes de node js con `npm install`
+3. Crear un archivo `.env` basado en el `.env.example`
+4. Ejecutar el proyecto con `npm run start` o `npm run dev`
+   - Opcional: ejecutar los comandos del `package.json` o usando `F5`
+
+## Requisitos
+
+1. Tener instalado node js
+
+## Scripts
+
+Algunos scripts que pueden ser utilizados
+
+| Comando               | Descripcion              |
+| --------------------- | ------------------------ |
+| `npm install`         | Instala las dependencias |
+| `npm run build`       | Crea un build            |
+| `rm -rf node_modules` | Limpia las dependencias  |
