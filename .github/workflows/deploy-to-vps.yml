@@ -1,0 +1,45 @@
+name: Despliegue a VPS
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  ssh-into-server:
+    name: Conexion a servidor
+    runs-on: ubuntu:latest
+    steps:
+      - name: Instalacion de llaves en github action
+        # check this thread to understand why its needed:
+        # https://stackoverflow.com/a/70447517
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
+
+      - name: Conexion
+        run: |
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 
+          cd ${{ secrets.SSH_WORKDIR }}
+
+      - name: Login con GH-CLI
+        run: export GITHUB_TOKEN="${{ github.token }}"
+
+      - name: Sincronizar con repo
+        run: gh repo sync
+
+      - name: Ejecutar proceso de build y deploy
+        run: |
+          yarn
+          yarn build
+          yarn deploy
+
+      - name: Limpieza del server
+        run: |
+          rm -rf node_modules/
+          unset GITHUB_TOKEN
+          exit
+
+      - name: cleanup
+        run: rm -rf ~/.ssh
