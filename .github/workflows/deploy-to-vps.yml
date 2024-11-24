@@ -23,11 +23,11 @@ jobs:
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 
           cd ${{ secrets.SSH_WORKDIR }}
 
-      - name: Login con GH-CLI
-        run: export GITHUB_TOKEN="${{ github.token }}"
-
-      - name: Sincronizar con repo
-        run: gh repo sync
+      - name: Clonar repositorio con el token
+        run: |
+          export GITHUB_TOKEN="${{ github.token }}"
+          gh repo sync
+          unset GITHUB_TOKEN
 
       - name: Ejecutar proceso de build y deploy
         run: |
@@ -38,7 +38,6 @@ jobs:
       - name: Limpieza del server
         run: |
           rm -rf node_modules/
-          unset GITHUB_TOKEN
           exit
 
       - name: cleanup
