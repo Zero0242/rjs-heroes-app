@@ -1,13 +1,13 @@
 <p align="center">
-  <a href="https://github.com/" target="blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="200" alt="App Logo" /></a>
+  <a href="https://react.dev/" target="blank">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1647490619965/P1dsNgj-f1.png" width="200" alt="App Logo" /></a>
 </p>
 
 # Proyecto Pagina de Heroes
 
 Pagina desarrollada en react JS para aplicar conocimientos de desarrollo web
 
-![status_01](https://github.com/Zero0242/rjs-heroes-app/actions/workflows/deploy-to-vps.yml/badge.svg)
+Aplicacion de REACTJS creada durante el curso de [Udemy](https://www.udemy.com/course/react-cero-experto/)
 
 > creado en node js
 
@@ -15,9 +15,7 @@ Pagina desarrollada en react JS para aplicar conocimientos de desarrollo web
 
 1. Clonar repositorio con `git clone`
 2. Instalar los paquetes de node js con `npm install`
-3. Crear un archivo `.env` basado en el `.env.example`
-4. Ejecutar el proyecto con `npm run start` o `npm run dev`
-   - Opcional: ejecutar los comandos del `package.json` o usando `F5`
+3. Ejecutar el proyecto con `npm run dev`
 
 ## Requisitos
 

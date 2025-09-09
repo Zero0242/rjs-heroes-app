@@ -4,8 +4,6 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"serve": "serve ./dist/ --single -p 2905",
-		"deploy": "pm2 start \"npm run serve\" --name \"react-heroes-page\"",
 		"dev": "vite",
 		"build": "vite build",
 		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
